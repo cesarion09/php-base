@@ -5,12 +5,13 @@ use App\DoctrineManager;
 use App\LogManager;
 use App\SessionManager;
 use Kint;
-abstract class Controller
+abstract class ControllerAuth
 {
     protected $viewManager;
     protected $doctrineManager;
     protected $logManager;
     protected $sessionManager;
+    protected $user;
     public function __construct(ViewManager $viewManager, DoctrineManager $doctrineManager, LogManager $logManager, SessionManager $sessionManager)
     {
         $this->viewManager = $viewManager;
@@ -18,6 +19,8 @@ abstract class Controller
         $this->logManager= $logManager;
         $this->logManager->info("Controlador ->".get_class($this)." cargado");
         $this->sessionManager = $sessionManager;
+        if (!$this->sessionManager->get('user')) return $this->redirectTo('login');
+        $this->user = $this->sessionManager->get('user')[0];
     }
     public abstract function index();
     public function redirectTo(string $page)

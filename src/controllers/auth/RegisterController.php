@@ -3,14 +3,11 @@ namespace App\controllers\auth;
 use App\controllers\Controller;
 use Kint;
 use App\db\entities\User;
-
 class RegisterController extends Controller
 {
-
     public function index(){
         $this->viewManager->renderTemplate('register.twig.html');
     }
-
     public function register(){
         $name = $_POST['name'];
         $email = $_POST['email'];
@@ -23,7 +20,5 @@ class RegisterController extends Controller
           $this->doctrineManager->em->persist($user);
           $this->doctrineManager->em->flush();
           echo ($user->id);
-
     }
-
 }

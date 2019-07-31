@@ -13,7 +13,10 @@ class Web
                 $route->addRoute('GET','/donde-estamos',['App\controllers\WhereController','index']);
                 $route->addRoute('GET','/users',['App\controllers\UsersController','index']);
                 $route->addRoute('GET','/register',['App\controllers\auth\RegisterController','index']);
-                $route->addRoute('POST','/register',['App\controllers\auth\RegisterController','index']);
+                $route->addRoute('POST','/register',['App\controllers\auth\RegisterController','register']);
+                $route->addRoute('GET','/login',['App\controllers\auth\LoginController','index']);
+                $route->addRoute('POST','/login',['App\controllers\auth\LoginController','login']);
+                $route->addRoute('GET','/paneldecontrol',['App\controllers\DashBoardController','index']);
             }
         );
 

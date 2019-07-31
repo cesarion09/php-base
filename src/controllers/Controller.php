@@ -19,5 +19,12 @@ abstract class Controller
 
     public abstract function index();
 
+    public function redirectTo(string $page)
+    {
+        $host = $_SERVER['HTTP_HOST'];
+        $uri = rtrim(dirname($_SERVER['PHP_SELF'],'/\\'));
+        HEADER("location : http://$$host$uri/$page")
+    }
+
 
 }

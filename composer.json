@@ -8,7 +8,7 @@
     ],
     "require": {
         "php": "7.3.7",
-        "twig/twig":"^2.11",
+        "twig/twig":"^3.11",
         "kint-php/kint": "^3.2",
         "monolog/monolog": "^1.24",
         "nikic/fast-route": "^1.3",
